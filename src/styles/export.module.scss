@@ -1,4 +1,5 @@
 // js/ts 与 scss 共享变量，在 scss 中通过 :export 进行导出，在 js/ts  中可通过 ESM 进行导入
 :export {
-  baseSidebarWidth: $base-sidebar-width;
+  menuColor: $base-menu-color;
+  menuBackground: $base-menu-background;
 }

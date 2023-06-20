@@ -9,6 +9,10 @@ declare module 'vue-router' {
      */
     hidden?: boolean
     /**
+     * 设置该路由在侧边栏的排序
+     */
+    order?: number
+    /**
      * 设置该路由在侧边栏和面包屑中展示的名字
      */
     title?: string
@@ -16,6 +20,8 @@ declare module 'vue-router' {
      * 设置该路由的图标
      */
     icon?: string
+    svgIcon?: string
+    elIcon?: string
     /**
      * 当一个路由下面的 children 声明的路由大于 1 个时，自动会变成嵌套的模式，
      * 只有一个时，会将那个子路由当做根路由显示在侧边栏，
