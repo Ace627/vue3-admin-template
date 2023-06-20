@@ -4,6 +4,7 @@
 @import './transition.scss';
 
 body {
+  -webkit-tap-highlight-color: transparent; // 解决在移动端时，点击元素会出现蓝色背景的问题
   background-color: #f1f1f1;
 }
 
