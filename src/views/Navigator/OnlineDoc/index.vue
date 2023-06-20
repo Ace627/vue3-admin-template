@@ -17,7 +17,6 @@ const list = [
   { text: 'Vuex 文档', link: 'https://v3.vuex.vuejs.org/zh' },
   { text: 'Pinia 文档', link: 'https://pinia.vuejs.org/zh/introduction.html' },
   { text: 'uni-app 文档', link: 'https://uniapp.dcloud.net.cn/api' },
-  { text: '小程序 文档', link: 'https://developers.weixin.qq.com/miniprogram/dev/api' },
   { text: 'Vite 文档', link: 'https://cn.vitejs.dev/guide' },
   { text: 'VueCli 文档', link: 'https://cli.vuejs.org/zh/guide' },
   { text: 'Canvas 文档', link: 'https://www.canvasapi.cn' },
@@ -26,9 +25,17 @@ const list = [
   { text: 'Express 文档', link: 'https://www.expressjs.com.cn' },
   { text: 'Nestjs 文档', link: 'https://www.nestjs.com.cn' },
   { text: 'Lodash 文档', link: 'https://www.lodashjs.com' },
+  { text: 'jQuery 文档', link: 'http://hemin.cn/jq' },
+
+  { text: 'ECharts 文档', link: 'https://echarts.apache.org/zh/index.html' },
+  { text: 'Less 中文文档', link: 'http://lesscss.cn' },
+  { text: 'Sass 中文文档', link: 'https://www.sass.hk/docs' },
+  { text: 'Stylus 中文文档', link: 'https://www.stylus-lang.cn' },
+
   { text: 'VuePress 文档', link: 'https://vuepress.vuejs.org/zh' },
   { text: 'VitePress 文档', link: 'https://vitejs.cn/vitepress' },
-  { text: 'ECharts 文档', link: 'https://echarts.apache.org/zh/index.html' },
+  { text: '微信小程序', link: 'https://developers.weixin.qq.com/miniprogram/dev/api' },
+  { text: '西瓜播放器', link: 'https://v2.h5player.bytedance.com' },
 ]
 </script>
 
@@ -38,7 +45,7 @@ const list = [
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 16px;
-  font-size: 20px;
+  font-size: 18px;
 
   .item {
     display: flex;
@@ -55,7 +62,8 @@ const list = [
       cursor: pointer;
       background-color: #1890ff;
       text-shadow: none;
-      font-size: 18px;
+      font-size: 16px;
+      border-radius: 10px 0 10px 0;
     }
   }
 }

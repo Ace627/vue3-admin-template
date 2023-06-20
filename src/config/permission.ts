@@ -6,7 +6,10 @@ import type { RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
 
 NProgress.configure({ showSpinner: false }) // 去除进度条加载时右侧的小圆圈
 const whiteList = ['/login'] // 免登录白名单
-const { getToken, removeToken } = useToken()
+const { getToken, removeToken, setToken } = useToken()
+
+/* 暂时不需要登录页 */
+setToken('mock_token')
 
 router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
   NProgress.start()
