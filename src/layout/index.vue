@@ -3,7 +3,7 @@
     <Sidebar></Sidebar>
 
     <section class="main-container">
-      <header class="fixed-header">
+      <header :class="{ 'fixed-header': fixedHeader }">
         <Navbar></Navbar>
       </header>
 
@@ -14,6 +14,9 @@
 
 <script setup lang="ts">
 import { Sidebar, Navbar, AppMain } from './components'
+
+const settingStore = useSetting()
+const { fixedHeader } = storeToRefs(settingStore)
 </script>
 
 <style lang="scss" scoped>
