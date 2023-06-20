@@ -20,7 +20,7 @@ export default [
         path: 'dashboard',
         name: 'Dashboard',
         component: () => import('@/views/Dashboard/index.vue'),
-        meta: { title: '首页', svgIcon: 'Fold' },
+        meta: { title: '首页', svgIcon: 'Dashboard' },
       },
     ],
   },

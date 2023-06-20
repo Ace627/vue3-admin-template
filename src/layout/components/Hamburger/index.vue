@@ -10,6 +10,6 @@ const appStore = useApp()
 
 <style lang="scss" scoped>
 .hamburger-icon {
-  font-size: 26px;
+  font-size: 24px;
 }
 </style>

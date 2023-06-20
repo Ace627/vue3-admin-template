@@ -2,13 +2,19 @@
   <div class="navbar">
     <div class="left">
       <Hamburger class="hamburger-container hover-effect" />
+      <Breadcrumb v-if="device !== 'mobile'" />
     </div>
+
     <div class="right"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import Hamburger from '../Hamburger/index.vue'
+import Breadcrumb from '../Breadcrumb/index.vue'
+
+const appStore = useApp()
+const device = computed(() => appStore.device)
 </script>
 
 <style lang="scss" scoped>
@@ -25,6 +31,8 @@ import Hamburger from '../Hamburger/index.vue'
 }
 
 .left {
+  display: flex;
+  align-items: center;
   height: 100%;
   .hamburger-container {
     display: flex;
