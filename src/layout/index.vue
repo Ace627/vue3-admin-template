@@ -1,13 +1,15 @@
 <template>
-  <Sidebar></Sidebar>
+  <el-scrollbar>
+    <Sidebar></Sidebar>
 
-  <section class="main-container">
-    <header class="fixed-header">
-      <Navbar></Navbar>
-    </header>
+    <section class="main-container">
+      <header class="fixed-header">
+        <Navbar></Navbar>
+      </header>
 
-    <AppMain></AppMain>
-  </section>
+      <AppMain></AppMain>
+    </section>
+  </el-scrollbar>
 </template>
 
 <script setup lang="ts">
