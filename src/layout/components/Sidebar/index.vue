@@ -13,5 +13,6 @@
   width: $base-sidebar-width;
   height: 100%;
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+  transition: width 0.28s;
 }
 </style>
