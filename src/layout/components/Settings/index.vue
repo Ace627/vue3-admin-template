@@ -26,7 +26,7 @@ const settingList = [
 
 function getSettingConfig() {
   const keyList = settingList.map(item => item.key)
-  const config = {}
+  const config: Record<string, boolean> = {}
   keyList.forEach(item => (config[item] = settingStore[item]))
   return config
 }
@@ -35,13 +35,13 @@ function getSettingConfig() {
 function saveSetting() {
   const loadingInstance = ElLoading.service({ fullscreen: true, text: '正在保存到本地，请稍候...', background: 'rgba(0, 0, 0, 0.96)' })
   localStorage.setItem('LAYOUT_SETTING', JSON.stringify(getSettingConfig()))
-  setTimeout(loadingInstance.close(), 5 * 1000)
+  setTimeout(() => loadingInstance.close(), 1 * 1000)
 }
 // 重置配置
 function resetSetting() {
   const loadingInstance = ElLoading.service({ fullscreen: true, text: '正在清除设置缓存并刷新，请稍候...', background: 'rgba(0, 0, 0, 0.96)' })
   localStorage.removeItem('LAYOUT_SETTING')
-  setTimeout(() => window.location.reload(), 1.5 * 1000)
+  setTimeout(() => window.location.reload(), 1 * 1000)
 }
 </script>
 
