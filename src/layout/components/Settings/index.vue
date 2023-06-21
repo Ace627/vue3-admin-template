@@ -41,7 +41,7 @@ function saveSetting() {
 function resetSetting() {
   const loadingInstance = ElLoading.service({ fullscreen: true, text: '正在清除设置缓存并刷新，请稍候...', background: 'rgba(0, 0, 0, 0.96)' })
   localStorage.removeItem('LAYOUT_SETTING')
-  setTimeout(window.location.reload(), 1.5 * 1000)
+  setTimeout(() => window.location.reload(), 1.5 * 1000)
 }
 </script>
 
