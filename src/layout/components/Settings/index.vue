@@ -15,22 +15,23 @@
 
 <script setup lang="ts">
 import { ElLoading } from 'element-plus'
+import type { KeyType, SettingStore } from '@/store/modules/useSetting'
 
 const settingStore = useSetting()
 
-const settingList = [
+// 用来遍历的配置菜单
+const settingList: Array<{ key: KeyType; name: string }> = [
   { key: 'fixedHeader', name: '固定 Header' },
   { key: 'sidebarLogo', name: '显示侧边栏 Logo' },
   { key: 'showGreyMode', name: '显示灰色模式' },
 ]
-
+// 根据配置菜单自动生成需要存储的配置
 function getSettingConfig() {
-  const keyList = settingList.map(item => item.key)
-  const config: Record<string, boolean> = {}
-  keyList.forEach(item => (config[item] = settingStore[item]))
+  const keyList = settingList.map(item => item.key) as KeyType[]
+  const config = {} as SettingStore
+  for (const item of keyList) config[item] = settingStore[item]
   return config
 }
-
 // 保存配置
 function saveSetting() {
   const loadingInstance = ElLoading.service({ fullscreen: true, text: '正在保存到本地，请稍候...', background: 'rgba(0, 0, 0, 0.96)' })
@@ -39,7 +40,7 @@ function saveSetting() {
 }
 // 重置配置
 function resetSetting() {
-  const loadingInstance = ElLoading.service({ fullscreen: true, text: '正在清除设置缓存并刷新，请稍候...', background: 'rgba(0, 0, 0, 0.96)' })
+  ElLoading.service({ fullscreen: true, text: '正在清除设置缓存并刷新，请稍候...', background: 'rgba(0, 0, 0, 0.96)' })
   localStorage.removeItem('LAYOUT_SETTING')
   setTimeout(() => window.location.reload(), 1 * 1000)
 }
