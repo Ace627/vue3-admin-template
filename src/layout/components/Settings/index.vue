@@ -24,6 +24,7 @@ const settingList: Array<{ key: KeyType; name: string }> = [
   { key: 'fixedHeader', name: '固定 Header' },
   { key: 'sidebarLogo', name: '显示侧边栏 Logo' },
   { key: 'showGreyMode', name: '显示灰色模式' },
+  { key: 'dynamicTitle', name: '是否采用动态标题' },
 ]
 // 根据配置菜单自动生成需要存储的配置
 function getSettingConfig() {
