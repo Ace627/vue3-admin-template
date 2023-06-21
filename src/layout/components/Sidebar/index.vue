@@ -1,6 +1,6 @@
 <template>
   <el-scrollbar class="sidebar-container">
-    <Logo />
+    <Logo v-if="sidebarLogo" />
     <el-menu :background-color="menuBackground" :text-color="menuColor" :collapse="isCollapse" :collapse-transition="false" unique-opened :default-active="activeMenu">
       <SidebarItem v-for="(route, index) in routeList" :key="index" :item="route" :basePath="route.path" />
     </el-menu>
@@ -14,8 +14,9 @@ import variables from '@/styles/export.module.scss'
 
 const route = useRoute()
 const appStore = useApp()
+const settingStore = useSetting()
 const permissionStore = usePermission()
-
+const { sidebarLogo } = storeToRefs(settingStore)
 const { menuBackground, menuColor } = variables
 
 const routeList = computed(() => permissionStore.routes)
@@ -39,7 +40,6 @@ const activeMenu = computed(() => (route.meta?.activeMenu ? route.meta.activeMen
 
 .el-menu {
   width: 100%;
-  min-height: calc(100vh - #{$logo-height});
   border: none;
 }
 </style>

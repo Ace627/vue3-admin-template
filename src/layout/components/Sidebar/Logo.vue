@@ -3,13 +3,13 @@
     <transition name="sidebar-logo-fade">
       <!-- 侧栏折叠状态 -->
       <router-link v-if="isCollapse" key="collapse" to="/" class="sidebar-logo-link">
-        <img v-if="SHOW_SIDEBAR_LOGO" src="/logo.png" class="sidebar-logo" draggable="false" />
+        <img v-if="'sidebarLogo'" src="/logo.png" class="sidebar-logo" draggable="false" />
         <h1 v-else class="sidebar-logo-text">{{ APP_TITLE }}</h1>
       </router-link>
 
       <!-- 侧栏展开状态 -->
       <router-link v-else key="expand" to="/" class="sidebar-logo-link">
-        <img v-if="SHOW_SIDEBAR_LOGO" src="/logo.png" class="sidebar-logo" alt="logo" draggable="false" />
+        <img v-if="'sidebarLogo'" src="/logo.png" class="sidebar-logo" alt="logo" draggable="false" />
         <h1 class="sidebar-logo-text">{{ APP_TITLE }}</h1>
       </router-link>
     </transition>
@@ -17,7 +17,6 @@
 </template>
 
 <script setup lang="ts">
-const SHOW_SIDEBAR_LOGO = true
 const APP_TITLE = '似水流年'
 
 const appStore = useApp()

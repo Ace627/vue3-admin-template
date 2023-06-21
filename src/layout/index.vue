@@ -1,29 +1,35 @@
 <template>
   <el-scrollbar :class="classObj">
-    <Sidebar></Sidebar>
-
+    <!-- mobile 端侧边栏遮罩层 -->
     <div v-if="device === 'mobile' && sidebar.opened" class="drawer-bg" @click="appStore.closeSidebar(false)"></div>
-
+    <!-- 左侧边栏 -->
+    <Sidebar></Sidebar>
+    <!-- 主体容器 -->
     <section class="main-container">
+      <!-- 头部导航栏和标签栏 -->
       <header :class="{ 'fixed-header': fixedHeader }">
         <Navbar></Navbar>
       </header>
-
+      <!-- 页面主体内容 -->
       <AppMain></AppMain>
+      <!-- 右侧设置面板 -->
+      <RightPanel>
+        <Settings />
+      </RightPanel>
     </section>
   </el-scrollbar>
 </template>
 
 <script setup lang="ts">
 import useResize from './hooks/useResize'
-import { Sidebar, Navbar, AppMain } from './components'
+import { Sidebar, Navbar, AppMain, RightPanel, Settings } from './components'
 
 useResize() // Layout 布局响应式
 
 const appStore = useApp()
 const { sidebar, device } = storeToRefs(appStore)
 const settingStore = useSetting()
-const { fixedHeader } = storeToRefs(settingStore)
+const { fixedHeader, showGreyMode } = storeToRefs(settingStore)
 
 const classObj = computed(() => {
   return {
@@ -31,6 +37,7 @@ const classObj = computed(() => {
     'open-sidebar': sidebar.value.opened,
     withoutAnimation: sidebar.value.withoutAnimation,
     mobile: device.value === 'mobile',
+    'gray-theme': showGreyMode.value,
   }
 })
 </script>
@@ -41,6 +48,10 @@ const classObj = computed(() => {
   height: 100%;
   margin-left: $base-sidebar-width;
   transition: margin-left 0.28s;
+}
+
+.gray-theme {
+  filter: grayscale(1);
 }
 
 .drawer-bg {
