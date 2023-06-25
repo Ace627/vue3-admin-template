@@ -18,7 +18,7 @@ const key = computed(() => route.path)
   position: relative;
   width: 100%;
   min-height: $app-main-height;
-  background-color: cadetblue;
+  // background-color: cadetblue;
   overflow: hidden;
 }
 .fixed-header + .app-main {
