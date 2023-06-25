@@ -6,6 +6,8 @@
       <el-switch v-model="settingStore[item.key]" />
     </div>
 
+    <el-divider />
+
     <div class="btn-group">
       <el-button type="primary" plain @click="saveSetting">保存配置</el-button>
       <el-button plain @click="resetSetting">重置配置</el-button>
@@ -37,7 +39,10 @@ function getSettingConfig() {
 function saveSetting() {
   const loadingInstance = ElLoading.service({ fullscreen: true, text: '正在保存到本地，请稍候...', background: 'rgba(0, 0, 0, 0.96)' })
   localStorage.setItem('LAYOUT_SETTING', JSON.stringify(getSettingConfig()))
-  setTimeout(() => loadingInstance.close(), 1 * 1000)
+  setTimeout(() => {
+    loadingInstance.close()
+    settingStore.showSetting = false
+  }, 1 * 1000)
 }
 // 重置配置
 function resetSetting() {

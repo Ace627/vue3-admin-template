@@ -7,7 +7,7 @@
 
     <div class="right">
       <!-- 个人中心 -->
-      <el-dropdown class="right-menu-item hover-effect" trigger="hover">
+      <el-dropdown class="right-menu-item hover-effect" :trigger="triggerType">
         <img :src="avatar" class="avatar" draggable="false" />
         <template #dropdown>
           <el-dropdown-menu>
@@ -30,6 +30,7 @@ const userStore = useUser()
 const settingStore = useSetting()
 const { device } = storeToRefs(appStore)
 const { avatar } = storeToRefs(userStore)
+const triggerType = computed(() => (device.value === 'desktop' ? 'hover' : 'click'))
 
 // 退出登录的回调
 async function logout() {
