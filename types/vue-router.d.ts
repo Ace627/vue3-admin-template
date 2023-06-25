@@ -4,39 +4,16 @@ import 'vue-router'
 
 declare module 'vue-router' {
   interface RouteMeta extends Record<string | number | symbol, unknown> {
-    /**
-     * 默认 false，设置 true 的时候该路由不会在侧边栏出现
-     */
-    hidden?: boolean
-    /**
-     * 设置该路由在侧边栏的排序
-     */
-    order?: number
-    /**
-     * 设置该路由在侧边栏和面包屑中展示的名字
-     */
-    title?: string
-    /**
-     * 设置该路由的图标
-     */
-    icon?: string
+    hidden?: boolean // 默认 false，设置 true 的时候该路由不会在侧边栏出现
+    order?: number // 设置该路由在侧边栏的排序
+    title?: string // 设置该路由在侧边栏和面包屑中展示的名字
+    icon?: string // 设置该路由的图标
     svgIcon?: string
     elIcon?: string
-    /**
-     * 当一个路由下面的 children 声明的路由大于 1 个时，自动会变成嵌套的模式，
-     * 只有一个时，会将那个子路由当做根路由显示在侧边栏，
-     * 若想不管路由下面的 children 声明的个数都显示你的根路由，
-     * 可以设置 alwaysShow: true，这样就会忽略之前定义的规则，一直显示根路由
-     */
-    alwaysShow?: boolean
-    /**
-     * 默认 true，如果设置为 false，则不会在面包屑中显示
-     */
-    breadcrumb?: boolean
-    /**
-     * 设置该路由进入的权限，支持多个权限叠加
-     */
-    roles?: string[]
+    frameURL?: string // 内嵌页面 iframe 的 src 地址
+    alwaysShow?: boolean // 是否一直显示根路由
+    breadcrumb?: boolean // 默认 true，如果设置为 false，则不会在面包屑中显示
+    roles?: string[] // 设置该路由进入的权限，支持多个权限叠加
     /**
      * 示例: activeMenu: "/xxx/xxx"，
      * 当设置了该属性进入路由时，则会高亮 activeMenu 属性对应的侧边栏。
