@@ -21,7 +21,6 @@ export default [
         name: 'Mfsb',
         component: IFrame,
         meta: { title: '运动刷步', frameURL: 'https://mfsb.org', svgIcon: 'Sport' },
-        props: { src: 'https://mfsb.org' },
       },
     ],
   },

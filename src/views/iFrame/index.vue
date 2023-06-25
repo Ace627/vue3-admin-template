@@ -15,9 +15,6 @@ onMounted(() => {
   iframeRef.value?.addEventListener('load', () => {
     loading.value = false
   })
-  // setTimeout(() => {
-  //   loading.value = false
-  // }, 600)
 })
 </script>
 

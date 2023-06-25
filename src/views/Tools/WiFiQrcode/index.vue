@@ -13,7 +13,7 @@
       <el-form-item label="WiFi Logo">
         <el-upload :before-upload="beforeUpload" class="wifi-upload">
           <img :src="wifiForm.logoURL" v-if="wifiForm.logoURL" alt="logo" class="logo" draggable="false" />
-          <el-icon v-else :size="30" color="var(--el-border-color)"><Plus /></el-icon>
+          <!-- <el-icon v-else :size="30" color="var(--el-border-color)"><Plus /></el-icon> -->
         </el-upload>
       </el-form-item>
 
