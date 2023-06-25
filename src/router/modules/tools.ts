@@ -10,14 +10,8 @@ export default [
     name: 'Tools',
     component: Layout,
     meta: { title: '实用工具', svgIcon: 'Tools', alwaysShow: true, order: 2 },
-    redirect: '/chromium-core-check',
+    redirect: '/wifi-qrcode',
     children: [
-      {
-        path: 'chromium-core-check',
-        name: 'ChromiumCoreCheck',
-        component: IFrame,
-        meta: { title: '浏览器内核检测', frameURL: 'https://liulanmi.com/labs/core.html', svgIcon: 'Sport' },
-      },
       {
         path: 'wifi-qrcode',
         name: 'WiFiQrcode',
