@@ -17,10 +17,12 @@ const key = computed(() => route.path)
 .app-main {
   position: relative;
   width: 100%;
-  min-height: 100%;
+  min-height: $app-main-height;
+  background-color: cadetblue;
   overflow: hidden;
 }
 .fixed-header + .app-main {
+  min-height: 100vh;
   padding-top: $navbar-height;
 }
 </style>
