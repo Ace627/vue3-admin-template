@@ -15,7 +15,7 @@ export default [
         path: 'dev-doc',
         name: 'DevDoc',
         component: () => import('@/views/Navigator/OnlineDoc/index.vue'),
-        meta: { title: '开发文档', svgIcon: 'Docement' },
+        meta: { title: '开发文档', svgIcon: 'Document' },
       },
     ],
   },
