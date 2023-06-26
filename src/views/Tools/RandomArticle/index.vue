@@ -69,7 +69,7 @@ loadArticle()
 
 :deep(p) {
   text-indent: 2em;
-  line-height: 1.5;
+  line-height: 1.75;
   &:not(:first-of-type) {
     margin-top: 16px;
   }

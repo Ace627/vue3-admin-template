@@ -13,6 +13,10 @@ const app = createApp(App)
 // import AutoRegisterGlobalComponents from '@/components'
 // app.use(AutoRegisterGlobalComponents)
 
+// 注册 Element Plus 所有图标
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) app.component(key, component)
+
 app.use(router)
 app.use(store)
 app.mount('#app')
