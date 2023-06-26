@@ -23,7 +23,7 @@
     </el-form>
 
     <!-- WiFi 二维码预览弹框 -->
-    <el-dialog title="WiFi 二维码预览" v-model="visiable" width="500px" center :before-close="beforeClose">
+    <el-dialog title="WiFi 二维码预览" v-model="visiable" width="300px" center :before-close="beforeClose">
       <div class="dialog-content">
         <Qrcode :text="codeText" :logo-src="wifiForm.logoURL" :margin="0" :callback="data => (qrcodeData = data)" />
       </div>
