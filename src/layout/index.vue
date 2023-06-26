@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar :class="classObj">
+  <el-scrollbar class="app-container" :class="classObj">
     <!-- mobile 端侧边栏遮罩层 -->
     <div v-if="device === 'mobile' && sidebar.opened" class="drawer-bg" @click="appStore.closeSidebar(false)"></div>
     <!-- 左侧边栏 -->
@@ -18,6 +18,8 @@
       </RightPanel>
     </section>
   </el-scrollbar>
+
+  <el-backtop :right="backtopPosNumber" :bottom="backtopPosNumber" target=".el-scrollbar__wrap" />
 </template>
 
 <script setup lang="ts">
@@ -30,6 +32,7 @@ const appStore = useApp()
 const { sidebar, device } = storeToRefs(appStore)
 const settingStore = useSetting()
 const { fixedHeader, showGreyMode } = storeToRefs(settingStore)
+const backtopPosNumber = computed(() => (device.value === 'desktop' ? 40 : 10))
 
 const classObj = computed(() => {
   return {
