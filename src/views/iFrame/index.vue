@@ -28,4 +28,10 @@ onMounted(() => {
     box-shadow: 0 5px 10px 1px #0f15331a, inset -1px 1px 1px #fffc;
   }
 }
+
+.has-tags-view {
+  .iframe-content {
+    height: calc(#{$app-main-height} - #{$tags-view-height});
+  }
+}
 </style>

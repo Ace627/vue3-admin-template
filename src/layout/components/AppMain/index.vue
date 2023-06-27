@@ -18,11 +18,19 @@ const key = computed(() => route.path)
   position: relative;
   width: 100%;
   min-height: $app-main-height;
-  // background-color: cadetblue;
   overflow: hidden;
 }
 .fixed-header + .app-main {
   min-height: 100vh;
   padding-top: $navbar-height;
+}
+
+.has-tags-view {
+  .app-main {
+    min-height: calc(#{$app-main-height} - #{$tags-view-height});
+  }
+  .fixed-header + .app-main {
+    padding-top: calc(#{$navbar-height} + #{$tags-view-height});
+  }
 }
 </style>

@@ -5,10 +5,11 @@
     <!-- 左侧边栏 -->
     <Sidebar></Sidebar>
     <!-- 主体容器 -->
-    <section class="main-container">
+    <section class="main-container" :class="{ 'has-tags-view': tagsView }">
       <!-- 头部导航栏和标签栏 -->
       <header :class="{ 'fixed-header': fixedHeader }">
         <Navbar></Navbar>
+        <TagsView v-if="tagsView"></TagsView>
       </header>
       <!-- 页面主体内容 -->
       <AppMain></AppMain>
@@ -24,14 +25,14 @@
 
 <script setup lang="ts">
 import useResize from './hooks/useResize'
-import { Sidebar, Navbar, AppMain, RightPanel, Settings } from './components'
+import { Sidebar, Navbar, TagsView, AppMain, RightPanel, Settings } from './components'
 
 useResize() // Layout 布局响应式
 
 const appStore = useApp()
 const { sidebar, device } = storeToRefs(appStore)
 const settingStore = useSetting()
-const { fixedHeader, showGreyMode } = storeToRefs(settingStore)
+const { fixedHeader, showGreyMode, tagsView } = storeToRefs(settingStore)
 const backtopPosNumber = computed(() => (device.value === 'desktop' ? 40 : 10))
 
 const classObj = computed(() => {

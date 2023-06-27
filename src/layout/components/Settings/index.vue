@@ -24,6 +24,7 @@ const settingStore = useSetting()
 // 用来遍历的配置菜单
 const settingList: Array<{ key: KeyType; name: string }> = [
   { key: 'fixedHeader', name: '固定 Header' },
+  { key: 'tagsView', name: '是否显示 tagsView' },
   { key: 'sidebarLogo', name: '显示侧边栏 Logo' },
   { key: 'showGreyMode', name: '显示灰色模式' },
   { key: 'dynamicTitle', name: '是否采用动态标题' },

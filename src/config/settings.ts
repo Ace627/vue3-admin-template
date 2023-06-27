@@ -3,6 +3,8 @@ export default {
   dynamicTitle: true,
   // 是否固定 Header
   fixedHeader: true,
+  // 是否展示 tagsView
+  tagsView: true,
   // 是否显示侧边栏 Logo
   sidebarLogo: true,
   // 是否显示灰色模式
