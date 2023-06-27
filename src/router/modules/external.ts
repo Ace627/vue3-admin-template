@@ -10,18 +10,18 @@ function createLink(path: string, title: string, elIcon = 'Promotion'): RouteRec
 }
 
 export default [
-  // {
-  //   path: '/external',
-  //   name: 'IFrame',
-  //   component: Layout,
-  //   meta: { title: '外链', svgIcon: 'External', alwaysShow: true, order: 3 },
-  //   children: [
-  //     {
-  //       path: 'mfsb',
-  //       name: 'Mfsb',
-  //       component: IFrame,
-  //       meta: { title: '运动刷步', frameURL: 'https://mfsb.org', svgIcon: 'Sport' },
-  //     },
-  //   ],
-  // },
+  {
+    path: '/external',
+    name: 'IFrame',
+    component: Layout,
+    meta: { title: '外链', svgIcon: 'External', alwaysShow: true, order: 3 },
+    children: [
+      {
+        path: 'App影院',
+        name: 'App影院',
+        component: IFrame,
+        meta: { title: 'App影院', frameURL: 'https://www.appmovie.cc', svgIcon: 'Movie' },
+      },
+    ],
+  },
 ] as RouteRecordRaw[]
