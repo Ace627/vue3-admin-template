@@ -28,7 +28,7 @@ export default [
         path: 'random-article',
         name: 'RandomArticle',
         component: () => import('@/views/Tools/RandomArticle/index.vue'),
-        meta: { title: '随机一篇文章', svgIcon: 'Document' },
+        meta: { title: '随机一文', svgIcon: 'Document' },
       },
     ],
   },

@@ -106,4 +106,11 @@ function openSettingPanel() {
     background-color: rgba(0, 21, 41, 0.08);
   }
 }
+
+.mobile .hover-effect {
+  transition: none;
+  &:hover {
+    background-color: transparent;
+  }
+}
 </style>
