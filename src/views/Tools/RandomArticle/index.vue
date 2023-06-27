@@ -64,10 +64,12 @@ loadArticle()
   margin: 16px 0 10px;
 }
 .app-content {
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: $app-main-height;
   color: #222;
   font-size: 18px;
+  transition: background-color 0.28s;
   article {
     max-width: 960px;
 
