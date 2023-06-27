@@ -69,7 +69,7 @@ loadArticle()
   color: #222;
   font-size: 18px;
   article {
-    max-width: 750px;
+    max-width: 960px;
 
     .title {
       text-align: center;
