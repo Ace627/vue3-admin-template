@@ -6,6 +6,9 @@
     </div>
 
     <div class="right">
+      <!-- 全屏控件 -->
+      <Screenfull class="right-menu-item hover-effect right-icon" />
+
       <!-- 个人中心 -->
       <el-dropdown class="right-menu-item hover-effect" :trigger="triggerType">
         <img :src="avatar" class="avatar" draggable="false" />
@@ -85,6 +88,9 @@ function openSettingPanel() {
     align-items: center;
     height: 100%;
     padding: 0 10px;
+  }
+  .right-icon {
+    font-size: 20px;
   }
 }
 
