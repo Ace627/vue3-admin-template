@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar class="app-container" :class="classObj">
+  <el-scrollbar class="app-container" :class="classObj" ref="scrollbarRef">
     <!-- mobile 端侧边栏遮罩层 -->
     <div v-if="device === 'mobile' && sidebar.opened" class="drawer-bg" @click="appStore.closeSidebar(false)"></div>
     <!-- 左侧边栏 -->
@@ -24,16 +24,19 @@
 </template>
 
 <script setup lang="ts">
+import { ElScrollbar } from 'element-plus'
 import useResize from './hooks/useResize'
 import { Sidebar, Navbar, TagsView, AppMain, RightPanel, Settings } from './components'
 
 useResize() // Layout 布局响应式
 
+const route = useRoute()
 const appStore = useApp()
 const { sidebar, device } = storeToRefs(appStore)
 const settingStore = useSetting()
 const { fixedHeader, showGreyMode, tagsView } = storeToRefs(settingStore)
 const backtopPosNumber = computed(() => (device.value === 'desktop' ? 40 : 10))
+const scrollbarRef = ref<InstanceType<typeof ElScrollbar>>()
 
 const classObj = computed(() => {
   return {
@@ -44,6 +47,14 @@ const classObj = computed(() => {
     'gray-theme': showGreyMode.value,
   }
 })
+
+/* 解决因 el-scrollbar 而导致 VueRouter 的 scrollBehavior 配置无效的问题 */
+watch(
+  () => route.path,
+  () => {
+    scrollbarRef.value!.setScrollTop(0)
+  },
+)
 </script>
 
 <style lang="scss" scoped>

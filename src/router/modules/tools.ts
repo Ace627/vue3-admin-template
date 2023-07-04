@@ -19,12 +19,6 @@ export default [
         meta: { title: 'WiFi 二维码', svgIcon: 'WiFi' },
       },
       {
-        path: 'mfsb',
-        name: 'Mfsb',
-        component: IFrame,
-        meta: { title: '运动刷步', frameURL: 'https://mfsb.org', svgIcon: 'Sport' },
-      },
-      {
         path: 'random-article',
         name: 'RandomArticle',
         component: () => import('@/views/Tools/RandomArticle/index.vue'),
