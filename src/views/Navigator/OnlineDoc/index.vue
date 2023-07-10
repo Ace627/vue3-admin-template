@@ -1,8 +1,10 @@
 <template>
   <div class="app-content">
-    <div class="nav"></div>
+    <div class="nav">
+      <p v-for="(item, index) in list" :key="index" @click="clickNav(index)" :class="{ active: activeIndex === index }">{{ item.text }}</p>
+    </div>
     <div class="list">
-      <el-card v-for="(item, index) in list" :key="index">
+      <el-card v-for="(item, index) in list" :key="index" class="nav-card">
         <template #header>{{ item.text }}</template>
         <div class="content">
           <a class="item" v-for="(v, i) in item.children" :key="i" :href="v.link" target="_blank">
@@ -133,6 +135,26 @@ const list = [
     ],
   },
   {
+    text: '数据可视化',
+    children: [
+      {
+        text: 'ECharts 文档',
+        link: 'https://echarts.apache.org/zh/index.html',
+        logoURL: 'https://echarts.apache.org/zh/images/favicon.png?_v_=20200710_1',
+      },
+      {
+        text: 'Threejs 文档',
+        link: 'https://threejs.docschina.org/#manual/introduction/Creating-a-scene',
+        logoURL: 'https://docschina.org/static/logo/threejs.png',
+      },
+      {
+        text: '西瓜播放器',
+        link: 'https://h5player.bytedance.com',
+        logoURL: 'https://lf3-static.bytednsdoc.com/obj/eden-cn/nupenuvpxnuvo/xgplayer_doc/favicon.ico',
+      },
+    ],
+  },
+  {
     text: '编译构建',
     children: [
       {
@@ -214,61 +236,95 @@ const list = [
   },
 ]
 
-const list1 = [
-  { text: 'Vuex 文档', link: 'https://v3.vuex.vuejs.org/zh' },
-  { text: 'Pinia 文档', link: 'https://pinia.vuejs.org/zh/introduction.html' },
-  { text: 'uni-app 文档', link: 'https://uniapp.dcloud.net.cn/api' },
-
-  { text: 'Canvas 文档', link: 'https://www.canvasapi.cn' },
-  { text: 'VueRouter 文档', link: 'https://router.vuejs.org/zh/guide' },
-  { text: 'Electron 文档', link: '' },
-  { text: 'Express 文档', link: 'https://www.expressjs.com.cn' },
-  { text: 'Nestjs 文档', link: 'https://www.nestjs.com.cn' },
-  { text: 'Lodash 文档', link: 'https://www.lodashjs.com' },
-  { text: 'jQuery 文档', link: 'http://hemin.cn/jq' },
-
-  { text: 'ECharts 文档', link: 'https://echarts.apache.org/zh/index.html' },
-  { text: 'Less 中文文档', link: 'http://lesscss.cn' },
-  { text: 'Sass 中文文档', link: 'https://www.sass.hk/docs' },
-  { text: 'Stylus 中文文档', link: 'https://www.stylus-lang.cn' },
-
-  { text: 'VuePress 文档', link: '' },
-  { text: ' 文档', link: '' },
-  { text: '微信小程序', link: 'https://developers.weixin.qq.com/miniprogram/dev/api' },
-  { text: '西瓜播放器', link: 'https://v2.h5player.bytedance.com' },
-]
+const activeIndex = ref(0)
+function clickNav(index: number) {
+  const list = document.querySelectorAll('.nav-card')
+  activeIndex.value = index
+  list[index].scrollIntoView({ behavior: 'smooth' })
+}
 </script>
 
 <style lang="scss" scoped>
 .app-content {
   display: flex;
   justify-content: center;
+  width: 100%;
   padding: 16px;
-}
-
-.el-card {
-  &:not(:first-of-type) {
-    margin-top: 16px;
+  .nav {
+    position: fixed;
+    left: calc(200px + 80px);
+    transition: left 0.28s;
+    color: #3d4b66;
+    p {
+      display: block;
+      width: 90px;
+      line-height: 30px;
+      margin: 16px 0;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 4px 6px;
+      transition: all 0.16s;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0px 5px 20px 5px #0f15331a, -2px -2px 4px 0px #ffffffe5, -1px 1px 1px 0px #ffffffcc inset;
+      &:hover,
+      &.active {
+        cursor: pointer;
+        color: #fff;
+        background-image: linear-gradient(220.55deg, #867ee6 15.27%, #4a86ff 49.16%), linear-gradient(0deg, #f5f6f7, #f5f6f7);
+      }
+    }
+  }
+  .list {
+    width: 80%;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 1px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+    }
+    .el-card {
+      &:not(:first-of-type) {
+        margin-top: 16px;
+      }
+    }
+    .content {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      .item {
+        display: flex;
+        align-items: center;
+        img {
+          width: 20px;
+          height: 20px;
+        }
+        span {
+          font-size: 15px;
+          margin-left: 6px;
+        }
+      }
+    }
   }
 }
 
-.mobile .content {
-  grid-template-columns: repeat(2, 1fr);
+.hide-sidebar {
+  .nav {
+    left: calc(#{$hide-sidebar-width} + 90px);
+  }
 }
-.content {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(6, 1fr);
-  .item {
-    display: flex;
-    align-items: center;
-    img {
-      width: 20px;
-      height: 20px;
-    }
-    span {
-      margin-left: 6px;
-      font-size: 14px;
+
+.mobile {
+  .nav {
+    display: none;
+  }
+  .list {
+    width: 100%;
+    height: auto;
+    .content {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
