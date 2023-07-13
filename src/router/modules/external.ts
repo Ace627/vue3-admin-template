@@ -13,16 +13,22 @@ export default [
     redirect: '/external/App影院',
     children: [
       {
-        path: 'App影院',
+        path: 'appmovie',
         name: 'App影院',
         component: IFrame,
         meta: { title: 'App影院', frameURL: 'https://www.appmovie.cc', svgIcon: 'Movie' },
       },
       {
-        path: '思古影视',
+        path: 'sigu',
         name: '思古影视',
         component: IFrame,
         meta: { title: '思古影视', frameURL: 'https://sigu.cc', svgIcon: 'Movie' },
+      },
+      {
+        path: 'hanjupeng',
+        name: '韩剧棚',
+        component: IFrame,
+        meta: { title: '韩剧棚', frameURL: 'http://www.hanjupeng.com', svgIcon: 'Movie' },
       },
     ],
   },
