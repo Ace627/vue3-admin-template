@@ -1,6 +1,6 @@
 <template>
   <div class="iframe-content" v-loading="loading" element-loading-text="拼命加载中..." element-loading-background="rgba(0, 0, 0, 0.8)">
-    <iframe ref="iframeRef" :src="src" frameborder="0" scrolling="auto" class="iframe"></iframe>
+    <iframe ref="iframeRef" :src="src" allowfullscreen frameborder="0" scrolling="auto" class="iframe"></iframe>
   </div>
 </template>
 
