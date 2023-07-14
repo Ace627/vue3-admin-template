@@ -36,9 +36,29 @@ const list: NavItem[] = [
         logoURL: 'https://web-abin.github.io/abinWeb/icons/18.png',
       },
       {
+        text: '思维导图',
+        link: 'https://gitmind.cn',
+        logoURL: 'https://qncdnjs.aoscdn.com/local/gitmind.com/app/gitmindcn/static/gitmind/favicon.png',
+      },
+      {
+        text: '文件压缩',
+        link: 'https://yasuo.xunjiepdf.com',
+        logoURL: 'https://yasuo.xunjiepdf.com/favicon.ico',
+      },
+      {
+        text: 'PDF工具集',
+        link: 'https://tools.pdf24.org/zh',
+        logoURL: 'https://tools.pdf24.org/static/img/share/v3/home.png?v=62bef007',
+      },
+      {
         text: '兼容性查询',
         link: 'https://caniuse.com',
         logoURL: 'https://caniuse.com/img/favicon-128.png',
+      },
+      {
+        text: '浏览器内核检测',
+        link: 'https://liulanmi.com/labs/core.html',
+        logoURL: 'https://liulanmi.com/favicon.ico',
       },
       {
         text: '草料二维码',
@@ -59,6 +79,11 @@ const list: NavItem[] = [
         text: '正则大全',
         link: 'https://any86.github.io/any-rule',
         logoURL: 'https://any86.github.io/any-rule/icon.png',
+      },
+      {
+        text: '极简插件',
+        link: 'https://chrome.zzzmh.cn',
+        logoURL: 'https://chrome.zzzmh.cn/favicon.ico',
       },
     ],
   },
@@ -221,6 +246,11 @@ const list: NavItem[] = [
         logoURL: 'https://cssgradient.io/images/favicon-23859487.png',
       },
       {
+        text: '中国传统色',
+        link: 'http://zhongguose.com/#xiangyehong',
+        logoURL: 'http://zhongguose.com/img/favicon.ico',
+      },
+      {
         text: '在线clip-path',
         link: 'http://tools.jb51.net/code/css3path',
         logoURL: 'https://web-abin.github.io/abinWeb/icons/36.png',
@@ -259,6 +289,11 @@ const list: NavItem[] = [
         text: 'Express 中文网',
         link: 'https://www.expressjs.com.cn',
         logoURL: 'https://www.expressjs.com.cn/images/favicon.png',
+      },
+      {
+        text: 'Koa 中文网',
+        link: 'http://www.koajs.com.cn',
+        logoURL: 'https://img0.baidu.com/it/u=4178612818,417374470&fm=253&app=138&size=w931&n=0&f=PNG&fmt=auto',
       },
       {
         text: 'Nestjs 中文网',
@@ -312,7 +347,7 @@ function clickNav(index: number) {
     }
   }
   .list {
-    width: 1200px;
+    width: 1100px;
     overflow-y: auto;
     .nav-card {
       width: 100%;
@@ -356,12 +391,14 @@ function clickNav(index: number) {
   .app-content {
     padding: 10px;
   }
+  .container {
+    height: auto;
+  }
   .nav {
     display: none;
   }
   .list {
     width: 100%;
-    height: auto;
     .content {
       grid-template-columns: repeat(2, 1fr);
     }
