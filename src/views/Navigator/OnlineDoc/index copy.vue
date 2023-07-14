@@ -1,32 +1,24 @@
 <template>
   <div class="app-content">
-    <div class="container">
-      <div class="nav">
-        <p v-for="(item, index) in list" :key="index" @click="clickNav(index)" :class="{ active: activeIndex === index }">{{ item.text }}</p>
-      </div>
-      <div class="list">
-        <el-card v-for="(item, index) in list" :key="index" class="nav-card">
-          <template #header>{{ item.text }}</template>
-          <div class="content">
-            <a class="item" v-for="(v, i) in item.children" :key="i" :href="v.link" target="_blank">
-              <img :src="v.logoURL" alt="logo" draggable="false" />
-              <span>{{ v.text }}</span>
-            </a>
-          </div>
-        </el-card>
-      </div>
+    <div class="nav">
+      <p v-for="(item, index) in list" :key="index" @click="clickNav(index)" :class="{ active: activeIndex === index }">{{ item.text }}</p>
+    </div>
+    <div class="list">
+      <el-card v-for="(item, index) in list" :key="index" class="nav-card">
+        <template #header>{{ item.text }}</template>
+        <div class="content">
+          <a class="item" v-for="(v, i) in item.children" :key="i" :href="v.link" target="_blank">
+            <img :src="v.logoURL" alt="logo" draggable="false" />
+            <span>{{ v.text }}</span>
+          </a>
+        </div>
+      </el-card>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-interface NavItem {
-  text: string
-  link?: string
-  logoURL?: string
-  children?: NavItem[]
-}
-const list: NavItem[] = [
+const list = [
   {
     text: '常用工具',
     children: [
@@ -146,11 +138,6 @@ const list: NavItem[] = [
     text: '数据可视化',
     children: [
       {
-        text: 'Canvas 中文网',
-        link: 'https://www.canvasapi.cn',
-        logoURL: 'https://www.canvasapi.cn/favicon.ico',
-      },
-      {
         text: 'ECharts 文档',
         link: 'https://echarts.apache.org/zh/index.html',
         logoURL: 'https://echarts.apache.org/zh/images/favicon.png?_v_=20200710_1',
@@ -194,11 +181,6 @@ const list: NavItem[] = [
         text: 'TypeScript 文档',
         link: 'https://zhongsp.gitbooks.io/typescript-handbook/content',
         logoURL: 'https://docschina.org/static/logo/typescript.svg',
-      },
-      {
-        text: 'Sass 中文网',
-        link: 'https://www.sass.hk/docs',
-        logoURL: 'https://www.sass.hk/favicon.ico',
       },
     ],
   },
@@ -252,21 +234,6 @@ const list: NavItem[] = [
       },
     ],
   },
-  {
-    text: 'Nodejs',
-    children: [
-      {
-        text: 'Express 中文网',
-        link: 'https://www.expressjs.com.cn',
-        logoURL: 'https://www.expressjs.com.cn/images/favicon.png',
-      },
-      {
-        text: 'Nestjs 中文网',
-        link: 'https://www.nestjs.com.cn',
-        logoURL: 'https://www.nestjs.com.cn/img/favicon.ico',
-      },
-    ],
-  },
 ]
 
 const activeIndex = ref(0)
@@ -279,26 +246,26 @@ function clickNav(index: number) {
 
 <style lang="scss" scoped>
 .app-content {
-  display: grid;
-  place-items: center;
-
-  .container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: calc(100vh - 120px);
-  }
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 16px;
   .nav {
-    width: 7em;
-    margin-right: 16px;
+    position: fixed;
+    left: calc(200px + 80px);
+    transition: left 0.28s;
+    color: #3d4b66;
     p {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 32px;
-      font-weight: 500;
-      transition: all 0.28s;
-      border-radius: 6px;
+      display: block;
+      width: 90px;
+      line-height: 30px;
+      margin: 16px 0;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 4px 6px;
+      transition: all 0.16s;
+      border-radius: 10px;
+      text-align: center;
       box-shadow: 0px 5px 20px 5px #0f15331a, -2px -2px 4px 0px #ffffffe5, -1px 1px 1px 0px #ffffffcc inset;
       &:hover,
       &.active {
@@ -306,16 +273,22 @@ function clickNav(index: number) {
         color: #fff;
         background-image: linear-gradient(220.55deg, #867ee6 15.27%, #4a86ff 49.16%), linear-gradient(0deg, #f5f6f7, #f5f6f7);
       }
-      &:not(:first-of-type) {
-        margin-top: 16px;
-      }
     }
   }
   .list {
-    width: 1200px;
+    width: 80%;
+    height: calc(100vh - 120px);
     overflow-y: auto;
-    .nav-card {
-      width: 100%;
+    &::-webkit-scrollbar {
+      width: 1px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+    }
+    .el-card {
+      &:not(:first-of-type) {
+        margin-top: 16px;
+      }
     }
     .content {
       display: grid;
@@ -325,8 +298,8 @@ function clickNav(index: number) {
         display: flex;
         align-items: center;
         img {
-          width: 24px;
-          height: 24px;
+          width: 20px;
+          height: 20px;
         }
         span {
           font-size: 15px;
@@ -337,25 +310,13 @@ function clickNav(index: number) {
   }
 }
 
-/* 卡片间距 */
-.nav-card:not(:first-of-type) {
-  margin-top: 16px;
-}
-
-/* 配置 list 卡片的滚动条样式 */
-.list {
-  &::-webkit-scrollbar {
-    width: 2px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: #ccc;
+.hide-sidebar {
+  .nav {
+    left: calc(#{$hide-sidebar-width} + 90px);
   }
 }
 
 .mobile {
-  .app-content {
-    padding: 10px;
-  }
   .nav {
     display: none;
   }
