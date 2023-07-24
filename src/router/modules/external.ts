@@ -9,7 +9,7 @@ export default [
     path: '/external',
     name: 'IFrame',
     component: Layout,
-    meta: { title: '外链', svgIcon: 'External', alwaysShow: true, order: 3 },
+    meta: { title: '外链', svgIcon: 'External', alwaysShow: true, order: 99 },
     redirect: '/external/App影院',
     children: [
       {

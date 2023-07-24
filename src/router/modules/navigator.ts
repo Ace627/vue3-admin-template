@@ -8,7 +8,7 @@ export default [
     path: '/navigator',
     name: 'Navigator',
     component: Layout,
-    meta: { title: '前端网站', svgIcon: 'Internet', alwaysShow: true, order: 2 },
+    meta: { title: '前端网站', elIcon: 'ChromeFilled', alwaysShow: true, order: 2 },
     redirect: '/dev-doc',
     children: [
       {
