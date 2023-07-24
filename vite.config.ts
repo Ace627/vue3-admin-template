@@ -87,17 +87,12 @@ export default defineConfig(({ command, mode }) => {
       copyPublicDir: true,
       /** 指定使用哪种混淆器。默认为 esbuild，它比 terser 快 20-40 倍，压缩率只差 1%-2% */
       /** Vite 2.6.x 以上需要配置 minify: "terser", terserOptions 才能生效 */
-      minify: 'terser',
-      /** 在打包代码时移除 console.log、debugger 和 注释 */
-      terserOptions: {
-        compress: {
-          drop_console: VITE_ENV.VITE_DROP_CONSOLE === '1',
-          drop_debugger: true,
-        },
-        format: {
-          comments: false,
-        },
-      },
+      minify: 'esbuild',
+    },
+
+    /** 在打包代码时移除 console、debugger */
+    esbuild: {
+      drop: ['console', 'debugger'],
     },
   }
 })
