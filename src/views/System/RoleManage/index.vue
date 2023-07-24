@@ -28,10 +28,10 @@
         <el-table-column align="center" label="创建时间" prop="createTime"></el-table-column>
         <el-table-column align="center" label="操作">
           <template #default="scope">
-            <el-row class="edit-row" type="flex" align="middle" justify="center">
-              <el-button type="text">用户</el-button>
-              <el-button type="text">授权</el-button>
-              <el-dropdown style="margin-left: 12px">
+            <div class="edit-row">
+              <el-text type="primary" class="item">用户</el-text>
+              <el-text type="primary" class="item">授权</el-text>
+              <el-dropdown class="item">
                 <span class="el-dropdown-link">
                   <span>更多</span>
                   <el-icon class="el-icon--right"><ArrowDown /></el-icon>
@@ -45,7 +45,7 @@
                   </el-dropdown-menu>
                 </template>
               </el-dropdown>
-            </el-row>
+            </div>
           </template>
         </el-table-column>
       </el-table>
@@ -78,6 +78,24 @@ const roleList = [
   }
   .el-form-item {
     margin-bottom: 0;
+  }
+
+  .edit-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .item {
+      font-size: 14px;
+      &:not(:first-of-type) {
+        margin-left: 12px;
+      }
+      &.el-dropdown {
+        display: flex;
+        align-items: center;
+        line-height: inherit;
+        margin-left: 12px;
+      }
+    }
   }
 
   .el-table {
