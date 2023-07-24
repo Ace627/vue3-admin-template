@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { ElConfigProvider } from 'element-plus'
-import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 </script>
 
 <style lang="scss" scoped></style>
